@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BioComponent } from './bio/bio.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ProjectsService } from './services/projects.service';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { BioComponent } from './bio/bio.component';
+import { ProjectsComponent } from './projects/projects.component';
+
+import { ProjectsService } from './services/projects.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAvgeDW9W7RDDjx7sTeo-xH5u4GC6VmGUg",
@@ -29,7 +33,9 @@ const firebaseConfig = {
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig, 'portfolio'),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   declarations: [AppComponent, HeaderComponent, BioComponent, ProjectsComponent],
   bootstrap: [AppComponent],

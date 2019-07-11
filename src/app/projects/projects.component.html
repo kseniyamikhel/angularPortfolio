@@ -1,4 +1,11 @@
 <h4>Projects</h4>
-<ul>
-  <li *ngFor="let project of projects"><a [href]="project.link">{{project.title}}</a></li>
-</ul>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let project of projects">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{project.title}}</mat-panel-title>
+      <mat-panel-description>{{project.year}}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <a [href]="project.link">{{project.link}}</a>
+    <p>{{project.description}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
