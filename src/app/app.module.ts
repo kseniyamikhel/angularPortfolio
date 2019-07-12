@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BioComponent } from './bio/bio.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { ProjectsService } from './services/projects.service';
 
@@ -31,14 +36,28 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig, 'portfolio'),
-    AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
-  declarations: [AppComponent, HeaderComponent, BioComponent, ProjectsComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    BioComponent,
+    ProjectsComponent,
+    AdminComponent
+  ],
   bootstrap: [AppComponent],
-  providers: [ProjectsService, AngularFireDatabase]
+  providers: [
+    ProjectsService,
+    AngularFireDatabase,
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
+    ]
 })
 export class AppModule { }

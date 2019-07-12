@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -14,9 +15,16 @@ export class HeaderComponent implements OnInit {
     position: 'Front-end Developer',
     avatar: 'https://avatars2.githubusercontent.com/u/17389743?s=460&v=4'
   }
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(public afAuth: AngularFireAuth) { }
 
   ngOnInit() {
+  }
+  login() {
+    const email = 'ksenia.ponomarenko@oxagile.com';
+    const password = 'KseniaPassword';
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      console.log(error);
+    });
   }
 
 }
