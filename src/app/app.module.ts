@@ -21,9 +21,10 @@ import { HeaderComponent } from './header/header.component';
 import { BioComponent } from './bio/bio.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
 
 import { ProjectsService } from './services/projects.service';
-import { HomeComponent } from './home/home.component';
+import { AuthService } from './services/auth.service';
 
 import { routes } from './app-routing.module';
 
@@ -65,6 +66,7 @@ const firebaseConfig = {
   providers: [
     ProjectsService,
     AngularFireDatabase,
+    AuthService,
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
   ]
 })
