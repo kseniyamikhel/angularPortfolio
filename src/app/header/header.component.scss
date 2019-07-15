@@ -13,6 +13,7 @@
     }
   }
   .info{
+    flex-grow: 1;
     h3{
       line-height: 0.3;
     }
@@ -23,5 +24,6 @@
   }
   .login{
     align-self: center;
+    margin: 10px;
   }
 }

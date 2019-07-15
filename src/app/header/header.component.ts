@@ -16,14 +16,25 @@ export class HeaderComponent implements OnInit {
   }
   constructor(public afAuth: AngularFireAuth) { }
 
+  isLoggedIn = false;
+
   ngOnInit() {
   }
-  login() {
+
+  async login() {
     const email = 'ksenia.ponomarenko@oxagile.com';
     const password = 'KseniaPassword';
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+    try {
+      const { user } = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+      if (user) this.isLoggedIn = true;
+    } catch (error) {
       console.log(error);
-    });
+    }
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.isLoggedIn = false;
   }
 
 }

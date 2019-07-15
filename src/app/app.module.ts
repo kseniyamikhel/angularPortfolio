@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
@@ -47,6 +48,7 @@ const firebaseConfig = {
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
     MatDatepickerModule,
     MatMomentDateModule,
     RouterModule.forRoot(routes)
@@ -64,6 +66,6 @@ const firebaseConfig = {
     ProjectsService,
     AngularFireDatabase,
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
-    ]
+  ]
 })
 export class AppModule { }
