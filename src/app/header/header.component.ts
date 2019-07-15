@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({

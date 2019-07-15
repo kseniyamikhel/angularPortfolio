@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -21,6 +22,9 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { ProjectsService } from './services/projects.service';
+import { HomeComponent } from './home/home.component';
+
+import { routes } from './app-routing.module';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAvgeDW9W7RDDjx7sTeo-xH5u4GC6VmGUg",
@@ -44,14 +48,16 @@ const firebaseConfig = {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    RouterModule.forRoot(routes)
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
     BioComponent,
     ProjectsComponent,
-    AdminComponent
+    AdminComponent,
+    HomeComponent
   ],
   bootstrap: [AppComponent],
   providers: [
