@@ -1,26 +1,31 @@
-<form [formGroup]="projectsForm" (ngSubmit)="onProjectsFormSubmit()">
+<form #form="ngForm" (ngSubmit)="onProjectsFormSubmit(form)">
 
-  <mat-form-field class="input">
-    <input matInput placeholder="Title" formControlName="title" required>
-    <mat-error *ngIf="projectsForm.controls.title.errors.required">Title is required</mat-error>
+  <mat-form-field>
+    <input matInput placeholder="Title" name="title" ngModel required>
+  </mat-form-field>
+
+  <div>
+    <mat-form-field class="date">
+      <input matInput [matDatepicker]="start" placeholder="Choose a date" name="start" ngModel>
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="date">
+      <input matInput [matDatepicker]="end" placeholder="Choose a date" name="end" ngModel>
+      <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+      <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" name="description" ngModel required></textarea>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <input matInput placeholder="Link" name="link" ngModel required>
   </mat-form-field>
 
-  <mat-form-field class="input">
-    <textarea matInput placeholder="Description" formControlName="description" required></textarea>
-    <mat-error *ngIf="projectsForm.controls.description.errors.required">Description is required</mat-error>
-  </mat-form-field>
-
-  <mat-form-field class="input">
-    <input matInput placeholder="Link" formControlName="link" required>
-    <mat-error *ngIf="projectsForm.controls.link.errors.required">Link is required</mat-error>
-  </mat-form-field>
-
-  <input type="submit" value="Send message" class="cta">
+  <button mat-stroked-button type="submit" [disabled]="!form.valid">Add project</button>
 
 </form>

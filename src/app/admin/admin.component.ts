@@ -2,6 +2,8 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { ProjectsService } from '../services/projects.service';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-admin',
@@ -10,16 +12,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class AdminComponent implements OnInit, DoCheck {
 
-  projectsForm: FormGroup; 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private projectsService: ProjectsService
+    ) { }
 
   ngOnInit() {
-    this.projectsForm = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
-      year: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      link: new FormControl('', [Validators.required])
-    });
+    this.projectsService.GetProjectsList();
   }
 
   ngDoCheck() {
@@ -28,9 +29,13 @@ export class AdminComponent implements OnInit, DoCheck {
     }
   }
   
-  onProjectsFormSubmit() {
-    if (this.projectsForm.invalid) {
-      return;
-    }
+  onProjectsFormSubmit(form) {
+    const project = new Project(
+      form.value.title,
+      new Date(form.value.start).getFullYear(),
+      form.value.description,
+      form.value.link);
+    this.projectsService.AddProject(project);
+    form.reset();
   }
 }
