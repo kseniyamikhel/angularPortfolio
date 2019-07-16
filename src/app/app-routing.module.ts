@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'bio', component: BioComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
-  { path: '**', component: HomeComponent },
+  { path: '**', redirectTo: '/' },
 ];

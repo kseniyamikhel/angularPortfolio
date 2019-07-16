@@ -8,8 +8,8 @@
     <p>{{user.position}}</p>
   </div>
   <div class="login">
-    <button mat-stroked-button (click)="isLoggedIn ? this.logout() : this.login()">
-      {{isLoggedIn ? 'Logout' : 'Login'}}
+    <button mat-stroked-button (click)="this.authService.isLoggedIn ? this.logout() : this.login()">
+      {{this.authService.isLoggedIn ? 'Logout' : 'Login'}}
     </button>
   </div>
 </div>

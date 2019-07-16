@@ -1,1 +1,6 @@
-<p>Home</p>
+<div class="home">
+  <a routerLink="/bio" mat-stroked-button>Bio</a>
+  <a routerLink="/projects" mat-stroked-button>Projects</a>
+  <a *ngIf="this.authService.isLoggedIn" routerLink="/admin" mat-stroked-button>Admin</a>
+  <mat-divider></mat-divider>
+</div>
