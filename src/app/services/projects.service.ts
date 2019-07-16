@@ -16,7 +16,8 @@ export class ProjectsService {
   AddProject(project: Project) {
     this.projectsRef.push({
       title: project.title,
-      year: project.year,
+      start: project.start,
+      end: project.end,
       description: project.description,
       link: project.link
     })
@@ -35,7 +36,8 @@ export class ProjectsService {
   UpdateProject(project: Project) {
     this.projectRef.update({
       title: project.title,
-      year: project.year,
+      start: project.start,
+      end: project.end,
       description: project.description,
       link: project.link
     })

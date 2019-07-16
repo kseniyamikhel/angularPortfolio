@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit, DoCheck {
     private authService: AuthService,
     private router: Router,
     private projectsService: ProjectsService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.projectsService.GetProjectsList();
@@ -28,11 +28,12 @@ export class AdminComponent implements OnInit, DoCheck {
       this.router.navigate(['/']);
     }
   }
-  
+
   onProjectsFormSubmit(form) {
     const project = new Project(
       form.value.title,
-      new Date(form.value.start).getFullYear(),
+      new Date(form.value.start).toString(),
+      new Date(form.value.end).toString(),
       form.value.description,
       form.value.link);
     this.projectsService.AddProject(project);

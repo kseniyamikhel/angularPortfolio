@@ -6,21 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bio.component.scss']
 })
 export class BioComponent implements OnInit {
-  projects = [
+  education = [
     {
-      title: 'Project 1',
-      year: 2017,
-      link: 'https://github.com/kseniyamikhel/ng7Tutorial'
+      title: 'University 1',
+      year: 2013
     },
     {
-      title: 'Project 2',
-      year: 2018,
-      link: 'https://github.com/kseniyamikhel/ng7Tutorial'
+      title: 'Master Degree',
+      year: 2015
     },
     {
-      title: 'Project 3',
-      year: 2019,
-      link: 'https://github.com/kseniyamikhel/ng7Tutorial'
+      title: 'University 2',
+      year: 2016
+    }
+  ]
+
+  courses = [
+    {
+      title: 'Course 1',
+      year: 2015
+    },
+    {
+      title: 'Course 2',
+      year: 2017
+    },
+    {
+      title: 'Course 3',
+      year: 2019
     }
   ]
 

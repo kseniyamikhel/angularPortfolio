@@ -13,8 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +28,7 @@ import { ProjectsService } from './services/projects.service';
 import { AuthService } from './services/auth.service';
 
 import { routes } from './app-routing.module';
+import { ProjectDatePipe } from './pipes/project-date.pipe';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAvgeDW9W7RDDjx7sTeo-xH5u4GC6VmGUg",
@@ -53,6 +55,7 @@ const firebaseConfig = {
     MatDatepickerModule,
     MatMomentDateModule,
     MatDividerModule,
+    MatListModule,
     RouterModule.forRoot(routes)
   ],
   declarations: [
@@ -61,7 +64,8 @@ const firebaseConfig = {
     BioComponent,
     ProjectsComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectDatePipe
   ],
   bootstrap: [AppComponent],
   providers: [

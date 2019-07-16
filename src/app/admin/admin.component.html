@@ -6,13 +6,13 @@
 
   <div>
     <mat-form-field class="date">
-      <input matInput [matDatepicker]="start" placeholder="Choose a date" name="start" ngModel>
+      <input matInput [matDatepicker]="start" placeholder="Start" name="start" ngModel required>
       <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
       <mat-datepicker #start></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="date">
-      <input matInput [matDatepicker]="end" placeholder="Choose a date" name="end" ngModel>
+      <input matInput [matDatepicker]="end" placeholder="End" name="end" ngModel required>
       <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
       <mat-datepicker #end></mat-datepicker>
     </mat-form-field>
